@@ -54,7 +54,3 @@ Feature: Sample
     Examples:
       | name   |
       | doggie |
-
-      
-
-  
