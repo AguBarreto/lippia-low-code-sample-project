@@ -38,5 +38,14 @@ Feature: Clockify
     When execute method GET
     Then the status code should be 200
 
-
-
+  @UpdateProject @TP8
+  Scenario: Update project on workspace
+    Given call Workspace.feature@GetAllWorkspaces
+    And call Clockify.feature@GetAllProjects
+    And base url $(env.base_url)
+    And endpoint v1/workspaces/{{idWorkspace}}/projects/{{idProject}}
+    And header Content-type = application/json
+    And header x-api-key = $(env.x_api_key)
+    And body jsons/bodies/EditProject.json
+    When execute method PUT
+    Then the status code should be 200
