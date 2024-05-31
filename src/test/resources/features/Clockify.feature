@@ -14,7 +14,7 @@ Feature: Clockify
 
     Examples:
       | nameProject |
-      | test2       |
+      | PRUEBAS     |
 
 
   @GetAllProjects @TP8
@@ -37,6 +37,16 @@ Feature: Clockify
     And header x-api-key = $(env.x_api_key)
     When execute method GET
     Then the status code should be 200
+
+  @GetProjectById @TP8
+  Scenario: Get project by nonexistent ID
+    Given call Workspace.feature@GetAllWorkspaces
+    And call Clockify.feature@GetAllProjects
+    And base url $(env.base_url)
+    And endpoint v1/workspaces/{{idWorkspace}}/projects/654155613
+    And header x-api-key = $(env.x_api_key)
+    When execute method GET
+    Then the status code should be 400
 
   @UpdateProject @TP8
   Scenario: Update project on workspace

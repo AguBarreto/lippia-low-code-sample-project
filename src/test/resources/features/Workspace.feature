@@ -1,6 +1,6 @@
 Feature: Workspace
 
-  @AddNewWorkspace @TP8
+  @AddNewWorkspace
   Scenario Outline: Add new workspace
     Given base url $(env.base_url)
     And endpoint v1/workspaces
