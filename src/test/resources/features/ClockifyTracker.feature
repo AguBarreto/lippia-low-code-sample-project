@@ -55,7 +55,7 @@ Feature: Consigna Final Lippia API low-code
 
     Examples:
       | billable | description         | end                  | start                |
-      | true     | Meeting with client | 2024-06-04T16:00:00Z | 2024-06-04T15:30:00Z |
+      | true     | Meeting with client | 2024-06-09T16:00:00Z | 2024-06-09T15:30:00Z |
 
   @UpdateTimeEntry
   Scenario Outline: Update a time entry
@@ -70,7 +70,7 @@ Feature: Consigna Final Lippia API low-code
 
     Examples:
       | billable | description          | start                |
-      | true     | Meeting Time updated | 2024-06-04T15:00:00Z |
+      | true     | Meeting Time updated | 2024-06-09T15:00:00Z |
 
   @DeleteTimeEntry
   Scenario: Delete time entry
