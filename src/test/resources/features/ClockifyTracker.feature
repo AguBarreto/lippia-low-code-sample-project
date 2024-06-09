@@ -41,7 +41,7 @@ Feature: Consigna Final Lippia API low-code
     * define TimeEntryId = response[0].id
 
   @AddTimeEntry
-  Scenario Outline: Add a new time entry
+  Scenario Outline: Add new time entry
     And call Tracker.feature@GetProject
     And endpoint /v1/workspaces/{{workspaceId}}/time-entries
     And set value <billable> of key billable in body /jsons/bodies/addTimeEntry.json
@@ -58,7 +58,7 @@ Feature: Consigna Final Lippia API low-code
       | true     | Meeting with client | 2024-06-09T16:00:00Z | 2024-06-09T15:30:00Z |
 
   @UpdateTimeEntry
-  Scenario Outline: Update a time entry
+  Scenario Outline: Update time entry
     And call Tracker.feature@GetTimeEntry
     And endpoint /v1/workspaces/{{workspaceId}}/time-entries/{{TimeEntryId}}
     And set value <billable> of key billable in body /jsons/bodies/updateTimeEntry.json
