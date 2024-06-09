@@ -1,4 +1,4 @@
-Feature: Clockify
+Feature: Clockify TP8
 
   @AddNewProject @TP8
   Scenario Outline: Add new project
@@ -58,4 +58,4 @@ Feature: Clockify
     And header x-api-key = $(env.x_api_key)
     And body jsons/bodies/EditProject.json
     When execute method PUT
-    Then the status code should be 200
+    Then the status code should be 201
