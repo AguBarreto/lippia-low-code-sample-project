@@ -31,7 +31,7 @@ Feature: Consigna Final Lippia API low-code
     And response should be [0].name = Proyecto001
     * define projectId = response[0].id
 
-  @GetTimeEntry
+  @GetTime
   Scenario: Get the time logs of a user in the workspace
     And call Tracker.feature@GetUser
     And call Tracker.feature@GetWorkspace
@@ -40,7 +40,7 @@ Feature: Consigna Final Lippia API low-code
     Then the status code should be 200
     * define TimeEntryId = response[0].id
 
-  @AddTimeEntry
+  @AddTime
   Scenario Outline: Add new time entry
     And call Tracker.feature@GetProject
     And endpoint /v1/workspaces/{{workspaceId}}/time-entries
@@ -57,7 +57,7 @@ Feature: Consigna Final Lippia API low-code
       | billable | description         | end                  | start                |
       | true     | Meeting with client | 2024-06-09T16:00:00Z | 2024-06-09T15:30:00Z |
 
-  @UpdateTimeEntry
+  @UpdateTime
   Scenario Outline: Update time entry
     And call Tracker.feature@GetTimeEntry
     And endpoint /v1/workspaces/{{workspaceId}}/time-entries/{{TimeEntryId}}
@@ -72,7 +72,7 @@ Feature: Consigna Final Lippia API low-code
       | billable | description          | start                |
       | true     | Meeting Time updated | 2024-06-09T15:00:00Z |
 
-  @DeleteTimeEntry
+  @DeleteTime
   Scenario: Delete time entry
     And call Tracker.feature@GetTimeEntry
     And endpoint /v1/workspaces/{{workspaceId}}/time-entries/{{TimeEntryId}}
